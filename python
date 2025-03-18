@@ -1,0 +1,30 @@
+""" You are tasked with developing a program to generate all possible anagrams of a given string. An anagram of a string is a rearrangement of its characters to form a new string. 
+
+
+
+Your program should efficiently generate all such permutations using recursion.
+
+Input format :
+The input consists of a single string s.
+
+Output format :
+The output consists of all possible anagrams of the input string separated by a space.
+
+"""
+
+
+def generate_anagrams(s, anagram=""):
+    if len(s) <= 1:
+        print(anagram + s, end=" ")
+    else:
+        for i in range(len(s)):
+            first_char = s[i]
+            remaining_chars = s[:i] + s[i+1:]
+            generate_anagrams(remaining_chars, anagram + first_char)
+
+# Get input from the user
+input_string = input()
+
+# Generate and print all anagrams of the input string
+#print("All anagrams of '" + input_string + "':")
+generate_anagrams(input_string)
